@@ -1,0 +1,194 @@
+ <nav class="navbar navbar-findcond navbar-fixed-top">
+      <div class="container">
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li class="active"><a href="#/"><span><i aria-hidden="true" class="fa fa-home fa-lg">&nbsp</i></span>Home</a></li>
+            <li><a href="#notification"><span><i aria-hidden="true" class="fa fa-bell fa-lg">&nbsp</i></span>Notifications</a></li>
+            <li><a href="#messages"><span><i aria-hidden="true" class="fa fa-comment fa-lg">&nbsp</i></span>Messages           </a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a href="javascript:void(0)" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle">User<span class="caret"></span></a>
+              <ul role="menu" class="dropdown-menu">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="http://localhost:3000/{{username}}">Profile</a></li>
+                <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form role="search" class="navbar-form navbar-right search-form">
+            <input type="text" placeholder="Search" style="border-radius:21px;" class="form-control">
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div style="padding-top: 6%;">     
+         <div class="container" style="width: 100% !important;">
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div class="info-box bg-yellow">
+                        <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+
+                        <div class="info-box-content">
+                          <span class="info-box-text">Inventory</span>
+                          <span class="info-box-number">5,200</span>
+
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 50%"></div>
+                          </div>
+                              <span class="progress-description">
+                                50% Increase in 30 Days
+                              </span>
+                        </div>                   
+                      </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="info-box bg-green">
+                        <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">Downloads</span>
+                          <span class="info-box-number">5,200</span>
+
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 50%"></div>
+                          </div>
+                              <span class="progress-description">
+                                50% Increase in 30 Days
+                              </span>
+                        </div>                    
+                      </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="info-box bg-red">
+                        <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text">Mentions</span>
+                          <span class="info-box-number">5,200</span>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 50%"></div>
+                          </div>
+                              <span class="progress-description">
+                                50% Increase in 30 Days
+                              </span>
+                        </div>                   
+                      </div>
+                </div>           
+
+          </div>
+        </div>
+
+
+        <div class="container" style="width: 100% !important;">
+            <div class="row">
+
+                 <div class="col-sm-8">   
+                    <div class="box box-default" style="background-color: #252836">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Browser Usage</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="chart-responsive">
+                                <canvas id="barChart" height="140"></canvas>
+                              </div>
+                             
+                            </div>                            
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                                    
+                    </div>
+                </div>
+
+                <div class="col-sm-4">   
+                    <div class="box box-default" style="background-color: #252836">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Browser Usage</h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                          <div class="row">
+                            <div class="col-md-8">
+                              <div class="chart-responsive">
+                                <canvas id="pieChart" height="305"></canvas>
+                              </div>
+                             
+                            </div>
+                           
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                                    
+                    </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+
+
+<script>
+var ctx = document.getElementById("pieChart");
+var data = { 
+    labels: ["January", "February", "March"],  
+    datasets: [
+        {
+            data: [300, 50, 100],
+            backgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ],
+            hoverBackgroundColor: [
+                "#FF6384",
+                "#36A2EB",
+                "#FFCE56"
+            ]
+        }]
+};
+var myPieChart = new Chart(ctx,{
+    type: 'doughnut',
+    data: data
+   // options: options
+});
+
+
+var bar = document.getElementById("barChart");
+var data = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+        {
+            label: "My First dataset",
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1,
+            data: [65, 59, 80, 81, 56, 55, 40],
+        }
+    ]
+};
+var barChart = new Chart(bar,{
+    type: 'bar',
+    data: data
+   // options: options
+});
+</script>   
